@@ -1,6 +1,7 @@
-import getCostExplorer from "./CostExplorer";
+import GetCostExplorer from "./GetCostExplorer";
+import SlackNotifier from "./SlackNotifier";
 
-getCostExplorer()
+GetCostExplorer()
   .then((result) => {
     // 今月の請求金額を取得
     const start = result?.ResultsByTime?.slice(-1)[0]?.TimePeriod?.Start;
@@ -10,6 +11,16 @@ getCostExplorer()
 
     console.log(`請求期間: ${start} ~ ${end}`);
     console.log(`請求金額: ${cost} ${costUnit}`);
+
+    // Slackに通知
+    SlackNotifier([
+      `🐙🐙🐙🐙🐙 今月のAWS請求金額 🐙🐙🐙🐙🐙`,
+      ``,
+      `💰💰💰 請求期間: ${start} ~ ${end}`,
+      `💰💰💰 請求金額: ${cost} ${costUnit}`,
+      ``,
+      `🦑🐸🐬🐪🦈🐄🦒🐉🦁🐔🦀🐍🐶😻🐋🐗🐡`
+    ].join('\n'))
   })
   .catch((err) => {
     console.error(err);

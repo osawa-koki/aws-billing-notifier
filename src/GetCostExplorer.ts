@@ -14,7 +14,7 @@ AWS.config.update({ region: "us-east-1" });
 console.log("Region: ", AWS.config.region);
 
 // 請求金額を取得
-const getCostExplorer = async () => {
+const GetCostExplorer = async () => {
   const costexplorer = new AWS.CostExplorer();
   const params = {
     TimePeriod: {
@@ -34,4 +34,4 @@ const getCostExplorer = async () => {
   return result;
 }
 
-export default getCostExplorer;
+export default GetCostExplorer;
