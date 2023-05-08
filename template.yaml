@@ -16,6 +16,8 @@ Resources:
     Properties:
       FunctionName: !Sub ${AWS::StackName}-aws-billing-notifier
       PackageType: Image
+      ImageConfig:
+        Command: [ "app.lambdaHandler" ]
       Architectures:
         - x86_64
       Events:
