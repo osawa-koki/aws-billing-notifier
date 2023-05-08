@@ -13,9 +13,9 @@ env:
   node-version: 18
 
 jobs:
-  lambda-check:
-    runs-on: ubuntu-latest
-    steps:
+  # lambda-check:
+  #   runs-on: ubuntu-latest
+  #   steps:
       # - uses: actions/checkout@v3
       # - uses: actions/setup-node@v3
       #   with:
@@ -34,7 +34,7 @@ jobs:
       #   working-directory: ${{ env.server-directory }}/src
   lambda-deploy:
     runs-on: ubuntu-latest
-    needs: lambda-check
+    # needs: lambda-check
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
