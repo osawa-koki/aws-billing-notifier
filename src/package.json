@@ -1,15 +1,17 @@
 {
-  "name": "hello_world",
+  "name": "aws-billing-notifier",
   "version": "1.0.0",
   "description": "hello world sample for NodeJS",
   "main": "app.js",
-  "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
+  "repository": "https://github.com/osawa-koki/aws-billing-notifier.git",
   "author": "SAM CLI",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
-    "axios": ">=0.21.1"
+    "axios": ">=0.21.1",
+    "typescript": "^5.0.4"
   },
   "scripts": {
+    "compile": "tsc",
     "test": "mocha tests/unit/"
   },
   "devDependencies": {
