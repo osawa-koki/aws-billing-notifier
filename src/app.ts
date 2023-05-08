@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/require-await */
 
-export const lambdaHandler = async (event: any, context: any) => {
+export const lambdaHandler = async () => {
   try {
     return {
       'statusCode': 200,
