@@ -7,10 +7,12 @@
   "author": "SAM CLI",
   "license": "Apache-2.0",
   "dependencies": {
+    "aws-sdk": "^2.1373.0",
     "axios": ">=0.21.1",
     "typescript": "^5.0.4"
   },
   "scripts": {
+    "start": "ts-node index.ts",
     "compile": "tsc",
     "lint": "eslint .",
     "prettier:write": "prettier --write .",
@@ -24,6 +26,7 @@
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "mocha": "^10.1.0",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "ts-node": "^10.9.1"
   }
 }
