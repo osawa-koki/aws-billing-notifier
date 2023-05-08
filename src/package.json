@@ -12,6 +12,9 @@
   },
   "scripts": {
     "compile": "tsc",
+    "lint": "eslint .",
+    "prettier:write": "prettier --write .",
+    "prettier:check": "prettier --check .",
     "test": "mocha tests/unit/"
   },
   "devDependencies": {
