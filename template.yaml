@@ -26,8 +26,3 @@ Resources:
       DockerTag: nodejs18.x-v1
       DockerContext: ./src
       Dockerfile: Dockerfile
-
-Outputs:
-  MyAPIGateway:
-    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
