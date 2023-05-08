@@ -11,6 +11,28 @@ Globals:
     Timeout: 60
 
 Resources:
+  BillingIamRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: "sts:AssumeRole"
+      Policies:
+        - PolicyName: "NotifySlackToBillingLambdaPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                  - "ce:GetCostAndUsage"
+                Resource: "*"
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -18,6 +40,7 @@ Resources:
       PackageType: Image
       ImageConfig:
         Command: [ "app.lambdaHandler" ]
+      Role: !GetAtt BillingIamRole.Arn
       Architectures:
         - x86_64
       Events:
