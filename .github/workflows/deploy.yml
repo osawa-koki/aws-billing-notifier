@@ -9,7 +9,6 @@ on:
 
 env:
   project-name: ${{ secrets.PROJECT_NAME }}
-  server-directory: ./server
   node-version: 18
 
 jobs:
@@ -46,9 +45,6 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Create dotenv file
         run: echo $'${{ secrets.LAMBDA_DOTENV }}' > ./src/.env
-        working-directory: ${{ env.server-directory }}
       - run: sam build --use-container
-        working-directory: ${{ env.server-directory }}
       - name: Deploy Lambda
         run: sam deploy --stack-name ${{ env.project-name }}
-        working-directory: ${{ env.server-directory }}
