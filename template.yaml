@@ -18,11 +18,10 @@ Resources:
       Architectures:
         - x86_64
       Events:
-        HelloWorld:
-          Type: Api
+        MySchedule:
+          Type: Schedule
           Properties:
-            Path: /api/hello
-            Method: get
+            Schedule: cron(0 0 * * ? *)
     Metadata:
       DockerTag: nodejs18.x-v1
       DockerContext: ./src
